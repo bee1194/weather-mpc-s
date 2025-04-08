@@ -1,0 +1,45 @@
+{
+  "name": "weather-mcp-s",
+  "version": "0.0.1",
+  "description": "weather-mcp-s MCP server",
+  "type": "module",
+  "bin": {
+    "weather-mcp-s": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && mcp-build",
+    "watch": "tsc --watch",
+    "start": "node dist/index.js",
+    "start:cli": "npm run build && node dist/index.js",
+    "start:server": "npm run build && npx @modelcontextprotocol/inspector node dist/index.js",
+    "dev:cli": "DEBUG=true npm run build && DEBUG=true node dist/index.js",
+    "dev:server": "DEBUG=true npm run build && npx @modelcontextprotocol/inspector -e DEBUG=true node dist/index.js",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write 'src/**/*.ts'"
+  },
+  "dependencies": {
+    "axios": "^1.8.4",
+    "dotenv": "^16.4.7",
+    "mcp-framework": "^0.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "@typescript-eslint/eslint-plugin": "^8.29.1",
+    "@typescript-eslint/parser": "^8.29.1",
+    "eslint": "^9.24.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.6",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "prettier": "^3.5.3",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.19.0"
+  }
+}
