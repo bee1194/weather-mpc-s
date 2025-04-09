@@ -116,7 +116,7 @@ Add this configuration to your Claude Desktop config file:
 {
   "mcpServers": {
     "weather-mcp-s": {
-      "command": "node",
+      "command": "/absolute/path/to/node",
       "args":["/absolute/path/to/weather-mcp-s/dist/index.js"]
     }
   }
@@ -136,6 +136,9 @@ Add this configuration to your Claude Desktop config file:
     "weather-mcp-s": {
       "command": "npx",
       "args": ["weather-mcp-s"]
+      "env": {
+        "OPENWEATHERMAP_API_KEY": "your_api_key"
+      }
     }
   }
 }
